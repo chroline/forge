@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { type Experiment } from "@/lib/types";
-import { AnimatePresence, motion } from "framer-motion";
 import { Archive, Trash2 } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ExperimentCard } from "./experiment-card";
