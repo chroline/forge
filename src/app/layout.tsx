@@ -1,12 +1,15 @@
 import { Providers } from "@/components/providers";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+// Host Grotesk font configuration
+const hostGrotesk = {
+  fontFamily: "Host Grotesk, sans-serif",
+  fontDisplay: "swap" as const,
+};
 
 export const metadata: Metadata = {
-  title: "Forge - AI Experimentation Platform",
+  title: "Lemma - AI Experimentation Platform",
   description:
     "A modern platform for AI experimentation, dataset management, and model evaluation",
   keywords: [
@@ -16,12 +19,12 @@ export const metadata: Metadata = {
     "datasets",
     "model evaluation",
   ],
-  authors: [{ name: "Forge Team" }],
-  creator: "Forge",
-  publisher: "Forge",
+  authors: [{ name: "Lemma Team" }],
+  creator: "Lemma",
+  publisher: "Lemma",
   robots: "index, follow",
   openGraph: {
-    title: "Forge - AI Experimentation Platform",
+    title: "Lemma - AI Experimentation Platform",
     description:
       "A modern platform for AI experimentation, dataset management, and model evaluation",
     type: "website",
@@ -29,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Forge - AI Experimentation Platform",
+    title: "Lemma - AI Experimentation Platform",
     description:
       "A modern platform for AI experimentation, dataset management, and model evaluation",
   },
@@ -42,7 +45,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body style={{ fontFamily: hostGrotesk.fontFamily }}>
         <Providers>{children}</Providers>
       </body>
     </html>

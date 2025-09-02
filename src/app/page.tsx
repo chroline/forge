@@ -12,7 +12,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <h1 className="text-4xl font-bold text-foreground mb-4">Forge</h1>
+        <h1 className="text-4xl font-bold text-foreground mb-4">Lemma</h1>
 
         <p className="text-lg text-muted-foreground max-w-md mx-auto">
           AI experimentation and data analysis platform

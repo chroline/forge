@@ -31,9 +31,23 @@ interface ExperimentMetricsChartsProps {
 export function ExperimentMetricsCharts({
   metricsOverTime,
 }: ExperimentMetricsChartsProps) {
+  // Calculate min and max values for better Y-axis scaling
+  const allMetricValues = metricsOverTime.flatMap((item) => [
+    item.metrics.accuracy,
+    item.metrics.precision,
+    item.metrics.recall,
+    item.metrics.f1Score,
+  ]);
+  const minValue = Math.floor(Math.min(...allMetricValues) * 100);
+  const maxValue = Math.ceil(Math.max(...allMetricValues) * 100);
+
+  // Add 5% padding to the range
+  const yAxisMin = Math.max(0, minValue - 5);
+  const yAxisMax = Math.min(100, maxValue + 5);
+
   const chartData = metricsOverTime.map((item) => ({
     ...item,
-    date: format(new Date(item.timestamp), "MMM dd"),
+    time: format(new Date(item.timestamp), "HH:mm"),
     accuracy: (item.metrics.accuracy * 100).toFixed(1),
     precision: (item.metrics.precision * 100).toFixed(1),
     recall: (item.metrics.recall * 100).toFixed(1),
@@ -87,14 +101,14 @@ export function ExperimentMetricsCharts({
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis
-                dataKey="date"
+                dataKey="time"
                 stroke="#888888"
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
               />
               <YAxis
-                domain={[0, 100]}
+                domain={[yAxisMin, yAxisMax]}
                 stroke="#888888"
                 fontSize={12}
                 tickLine={false}
@@ -160,14 +174,14 @@ export function ExperimentMetricsCharts({
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis
-                dataKey="date"
+                dataKey="time"
                 stroke="#888888"
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
               />
               <YAxis
-                domain={[0, 100]}
+                domain={[yAxisMin, yAxisMax]}
                 stroke="#888888"
                 fontSize={12}
                 tickLine={false}
@@ -224,14 +238,14 @@ export function ExperimentMetricsCharts({
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis
-                dataKey="date"
+                dataKey="time"
                 stroke="#888888"
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
               />
               <YAxis
-                domain={[0, 100]}
+                domain={[yAxisMin, yAxisMax]}
                 stroke="#888888"
                 fontSize={12}
                 tickLine={false}
@@ -314,7 +328,9 @@ export function ExperimentMetricsCharts({
                     <td className="p-3 font-medium text-gray-900">
                       {item.iteration}
                     </td>
-                    <td className="p-3 text-gray-600">{item.date}</td>
+                    <td className="p-3 text-gray-600">
+                      {format(new Date(item.timestamp), "MMM dd, HH:mm")}
+                    </td>
                     <td className="p-3 text-right font-medium text-blue-600">
                       {item.accuracy}%
                     </td>

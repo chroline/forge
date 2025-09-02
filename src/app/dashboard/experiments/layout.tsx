@@ -1,5 +1,6 @@
 "use client";
 
+import { DashboardBody } from "@/components/dashboard-body";
 import { DashboardHeader } from "@/components/dashboard-header";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
@@ -15,28 +16,30 @@ export default function ExperimentsLayout({
   const [createSheetOpen, setCreateSheetOpen] = useState(false);
 
   return (
-    <div className="flex flex-1 flex-col h-full overflow-hidden">
+    <div className="flex flex-1 flex-col">
       <DashboardHeader title="Experiments">
         <Button onClick={() => setCreateSheetOpen(true)}>
           <Plus className="mr-1 h-4 w-4" />
           New Experiment
         </Button>
       </DashboardHeader>
-      <div className="flex-1 flex h-full overflow-hidden">
-        {/* Left Panel - Experiment List */}
-        <ExperimentSidebar />
+      <DashboardBody>
+        <div className="flex-1 flex gap-8 h-full overflow-hidden">
+          {/* Left Panel - Experiment List */}
+          <ExperimentSidebar />
 
-        {/* Right Panel - Child Pages */}
-        <div className="flex-1 flex flex-col h-full overflow-scroll py-4">
-          <div className="max-w-4xl w-full mx-auto p-6">{children}</div>
+          {/* Right Panel - Child Pages */}
+          <div className="flex-1 flex flex-col h-full overflow-scroll">
+            <div className="max-w-4xl w-full mx-auto">{children}</div>
+          </div>
         </div>
-      </div>
 
-      {/* Create Sheet */}
-      <ExperimentCreateSheet
-        open={createSheetOpen}
-        onOpenChange={setCreateSheetOpen}
-      />
+        {/* Create Sheet */}
+        <ExperimentCreateSheet
+          open={createSheetOpen}
+          onOpenChange={setCreateSheetOpen}
+        />
+      </DashboardBody>
     </div>
   );
 }

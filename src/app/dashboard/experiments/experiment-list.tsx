@@ -107,7 +107,7 @@ export function ExperimentList({
           const isSelected = selectedIds.includes(experiment.id);
 
           return (
-            <div key={experiment.id} className="px-4">
+            <div key={experiment.id}>
               <ExperimentCard
                 experiment={experiment}
                 isActive={isActive}

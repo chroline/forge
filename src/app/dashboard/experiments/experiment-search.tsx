@@ -34,7 +34,7 @@ export function ExperimentSearch({
   };
 
   return (
-    <div className="p-4 border-b space-y-3">
+    <div className="space-y-3">
       <Input
         placeholder="Search experiments..."
         value={searchQuery}

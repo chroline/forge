@@ -10,10 +10,12 @@ import { DatasetError } from "./dataset-error";
 import { DatasetHeader } from "./dataset-header";
 import { DatasetLoading } from "./dataset-loading";
 import { DatasetStats } from "./dataset-stats";
+import { DatasetEntriesTable } from "./dataset-entries-table";
 
 export default function DatasetPage() {
   const params = useParams();
   const datasetId = params.datasetId as string;
+  const [showEntries, setShowEntries] = useState(false);
 
   // Use TanStack Query to fetch dataset
   const { data: dataset, isLoading, error } = useDataset(datasetId);
@@ -83,6 +85,10 @@ export default function DatasetPage() {
     }
   };
 
+  const handleViewData = () => {
+    setShowEntries(!showEntries);
+  };
+
   return (
     <div className="space-y-6">
       <DatasetHeader
@@ -101,7 +107,12 @@ export default function DatasetPage() {
         columns={dataset.columns || 0}
       />
 
-      <DatasetActions />
+      <DatasetActions onViewData={handleViewData} showEntries={showEntries} />
+
+      {/* Dataset Entries Table */}
+      {showEntries && (
+        <DatasetEntriesTable datasetId={datasetId} />
+      )}
     </div>
   );
 }

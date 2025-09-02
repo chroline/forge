@@ -111,20 +111,20 @@ export function ExperimentMetricsOverview({
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Training Epochs
+              Training Iterations
             </CardTitle>
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-green-600">
-              {metrics.epochs}
+              {metrics.iterations}
             </div>
             <p className="text-xs text-muted-foreground">
-              {metrics.epochs > 50
-                ? "Well trained"
-                : metrics.epochs > 25
-                ? "Moderately trained"
-                : "Light training"}
+              {metrics.iterations > 5
+                ? "Well iterated"
+                : metrics.iterations > 3
+                ? "Moderately iterated"
+                : "Light iteration"}
             </p>
           </CardContent>
         </Card>
@@ -330,12 +330,12 @@ export function ExperimentMetricsOverview({
                       Low Loss
                     </Badge>
                   )}
-                  {metrics.epochs > 50 && (
+                  {metrics.iterations > 5 && (
                     <Badge
                       variant="default"
                       className="bg-yellow-100 text-yellow-800"
                     >
-                      Well Trained
+                      Well Iterated
                     </Badge>
                   )}
                 </div>

@@ -27,12 +27,14 @@ export interface ClassificationMetrics {
   specificity: number;
   sensitivity: number;
   auc: number;
+  /** @deprecated Use multiClassConfusionMatrix instead */
   confusionMatrix: {
     truePositives: number;
     trueNegatives: number;
     falsePositives: number;
     falseNegatives: number;
   };
+  multiClassConfusionMatrix?: { [key: string]: { [key: string]: number } };
 }
 
 export interface MetricsOverTime {
@@ -55,7 +57,7 @@ export interface PromptIteration {
 export interface ExperimentMetrics {
   accuracy: number;
   loss: number;
-  epochs: number;
+  iterations: number;
   // Extended metrics for classification
   classificationMetrics?: ClassificationMetrics;
   metricsOverTime?: MetricsOverTime[];
@@ -73,5 +75,4 @@ export interface Experiment {
   owner?: string;
   dataset: string;
   model: string;
-  framework: string;
 }

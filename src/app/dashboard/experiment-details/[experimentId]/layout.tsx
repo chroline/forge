@@ -1,3 +1,4 @@
+import { DashboardBody } from "@/components/dashboard-body";
 import { DashboardHeader } from "@/components/dashboard-header";
 
 export default function ExperimentDetailsLayout({
@@ -8,7 +9,9 @@ export default function ExperimentDetailsLayout({
   return (
     <div className="flex flex-1 flex-col h-full overflow-hidden">
       <DashboardHeader title="Experiment Details" />
-      <div className="flex-1 flex h-full overflow-scroll">{children}</div>
+      <DashboardBody>
+        <div className="flex-1 flex h-full overflow-scroll">{children}</div>
+      </DashboardBody>
     </div>
   );
 }

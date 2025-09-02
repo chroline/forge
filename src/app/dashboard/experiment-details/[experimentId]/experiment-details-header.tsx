@@ -32,7 +32,7 @@ export function ExperimentDetailsHeader({
 
   return (
     <div className="border-b">
-      <div className="container mx-auto px-12 py-10">
+      <div className="container mx-auto pb-8">
         {/* Experiment Info */}
         <div className="space-y-4">
           <div className="flex items-start justify-between">
@@ -56,7 +56,7 @@ export function ExperimentDetailsHeader({
           </div>
 
           {/* Experiment Details */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-gray-100 rounded-lg">
                 <Activity className="h-4 w-4 text-gray-600" />
@@ -75,15 +75,7 @@ export function ExperimentDetailsHeader({
                 <p className="text-sm text-gray-600">{experiment.model}</p>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <div className="p-2 bg-gray-100 rounded-lg">
-                <BarChart3 className="h-4 w-4 text-gray-600" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-gray-900">Framework</p>
-                <p className="text-sm text-gray-600">{experiment.framework}</p>
-              </div>
-            </div>
+
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-gray-100 rounded-lg">
                 <Activity className="h-4 w-4 text-gray-600" />

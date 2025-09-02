@@ -1,4 +1,4 @@
-# Forge - AI Experimentation Platform
+# Lemma - AI Experimentation Platform
 
 A modern platform for AI experimentation, dataset management, and model evaluation.
 

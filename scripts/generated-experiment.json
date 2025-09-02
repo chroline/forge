@@ -1,8 +1,4 @@
-import { type Experiment } from "@/lib/types";
-
-// Generated experiment data with multi-class confusion matrix
-export const experiments: Experiment[] = [
-  {
+{
   "id": "exp-001",
   "name": "Patient Communication Intent Optimization",
   "description": "Optimizing system prompts for patient communication intent classification with different prompting strategies",
@@ -799,6 +795,6 @@ export const experiments: Experiment[] = [
     ]
   },
   "dataset": "Patient Communication Intent",
-  "model": "Claude-3"
+  "model": "Claude-3",
+  "framework": "Anthropic API"
 }
-];

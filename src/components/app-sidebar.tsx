@@ -6,7 +6,6 @@ import {
   FlaskConical,
   MessageSquare,
   Search,
-  Zap,
 } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
@@ -32,8 +31,8 @@ import { inputVariants } from "./ui/input";
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "Cole Gawin",
+    email: "colegawin@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navSections: [
@@ -77,7 +76,7 @@ const data = {
   ],
 };
 
-function ForgeHeader() {
+function LemmaHeader() {
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -88,10 +87,12 @@ function ForgeHeader() {
         >
           <Link href="/dashboard">
             <div className="bg-primary text-white flex aspect-square size-8 items-center justify-center rounded-lg">
-              <Zap className="size-4" />
+              <span className="text-primary-foreground font-bold text-sm">
+                L
+              </span>
             </div>
-            <p className="grid flex-1 text-left leading-tight truncate font-semibold text-primary text-xl">
-              Forge
+            <p className="grid flex-1 text-left leading-tight truncate font-semibold text-xl">
+              Lemma
             </p>
           </Link>
         </SidebarMenuButton>
@@ -128,7 +129,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <ForgeHeader />
+        <LemmaHeader />
       </SidebarHeader>
       <SidebarContent className="flex flex-col">
         <SearchButton />

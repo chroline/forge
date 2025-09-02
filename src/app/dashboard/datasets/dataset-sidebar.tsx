@@ -42,7 +42,7 @@ export function DatasetSidebar() {
   };
 
   return (
-    <div className="border-r w-80 xl:w-sm flex flex-col h-full overflow-hidden sticky top-0">
+    <div className="w-80 xl:w-sm flex flex-col h-full overflow-hidden sticky top-0">
       <DatasetSearch
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}

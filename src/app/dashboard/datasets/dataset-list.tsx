@@ -106,7 +106,7 @@ export function DatasetList({
           const isSelected = selectedIds.includes(dataset.id);
 
           return (
-            <div key={dataset.id} className="px-4">
+            <div key={dataset.id}>
               <DatasetCard
                 dataset={dataset}
                 isActive={isActive}

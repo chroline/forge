@@ -11,7 +11,7 @@ import {
 interface ExperimentMetrics {
   accuracy: number;
   loss: number;
-  epochs: number;
+  iterations: number;
 }
 
 interface ExperimentMetricsProps {
@@ -46,9 +46,9 @@ export function ExperimentMetrics({ metrics }: ExperimentMetricsProps) {
             </div>
             <div>
               <label className="text-sm font-medium text-muted-foreground">
-                Epochs
+                Iterations
               </label>
-              <p className="text-2xl font-bold">{metrics.epochs}</p>
+              <p className="text-2xl font-bold">{metrics.iterations}</p>
             </div>
           </div>
         ) : (

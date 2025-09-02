@@ -1,8 +1,4 @@
-import { type Dataset } from "@/lib/types";
-
-// Generated dataset data
-export const datasets: Dataset[] = [
-  {
+{
   "id": "1",
   "name": "Patient Communication Intent",
   "description": "Patient messages and inquiries classified by intent and communication type",
@@ -44,4 +40,3 @@ export const datasets: Dataset[] = [
     }
   ]
 }
-];

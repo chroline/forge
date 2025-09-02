@@ -45,7 +45,6 @@ export default function ExperimentPage() {
         <ExperimentDetails
           dataset={experiment.dataset}
           model={experiment.model}
-          framework={experiment.framework}
           createdAt={experiment.createdAt}
           updatedAt={experiment.updatedAt}
         />

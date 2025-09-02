@@ -82,6 +82,15 @@ export default function ExperimentsPage() {
 
   return (
     <div className="space-y-6">
+      {/* Header */}
+      <div className="space-y-2">
+        <h1 className="text-2xl font-bold">Experiments Overview</h1>
+        <p className="text-muted-foreground">
+          Manage and explore your experiments. Select an experiment from the
+          list to view detailed information.
+        </p>
+      </div>
+
       {/* Overview Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card>
@@ -155,8 +164,6 @@ export default function ExperimentsPage() {
                   <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
                     <span>{experiment.model}</span>
                     <span>•</span>
-                    <span>{experiment.framework}</span>
-                    <span>•</span>
                     <span>Updated {experiment.updatedAt}</span>
                   </div>
                 </div>
@@ -166,7 +173,7 @@ export default function ExperimentsPage() {
                       {(experiment.metrics.accuracy * 100).toFixed(1)}%
                     </div>
                     <div className="text-xs text-muted-foreground">
-                      {experiment.metrics.epochs} epochs
+                      {experiment.metrics.iterations} iterations
                     </div>
                   </div>
                 )}

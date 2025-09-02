@@ -77,8 +77,8 @@ export function ExperimentCard({
     >
       <Card
         className={cn(
-          "cursor-pointer transition-all hover:shadow-md py-0 relative",
-          isActive && "ring-2 ring-primary"
+          "cursor-pointer transition-all hover:shadow-md py-0 relative border-1 hover:border-primary hover:shadow-none",
+          isActive && "border-primary"
         )}
       >
         {/* Checkbox in top right */}
@@ -112,15 +112,13 @@ export function ExperimentCard({
           {experiment.metrics && (
             <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
               <span>{(experiment.metrics.accuracy * 100).toFixed(1)}%</span>
-              <span>{experiment.metrics.epochs} epochs</span>
+              <span>{experiment.metrics.iterations} iterations</span>
             </div>
           )}
 
-          {/* Model and Framework */}
+          {/* Model */}
           <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
             <span className="font-medium">{experiment.model}</span>
-            <span>•</span>
-            <span>{experiment.framework}</span>
           </div>
 
           {/* Dataset */}

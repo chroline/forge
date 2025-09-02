@@ -1,5 +1,6 @@
 "use client";
 
+import { DashboardBody } from "@/components/dashboard-body";
 import { DashboardHeader } from "@/components/dashboard-header";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
@@ -22,21 +23,24 @@ export default function DatasetsLayout({
           New Dataset
         </Button>
       </DashboardHeader>
-      <div className="flex-1 flex h-full overflow-hidden">
-        {/* Left Panel - Dataset List */}
-        <DatasetSidebar />
 
-        {/* Right Panel - Child Pages */}
-        <div className="flex-1 flex flex-col h-full overflow-scroll py-4">
-          <div className="max-w-4xl w-full mx-auto p-6">{children}</div>
+      <DashboardBody>
+        <div className="flex-1 flex gap-8 h-full overflow-hidden">
+          {/* Left Panel - Dataset List */}
+          <DatasetSidebar />
+
+          {/* Right Panel - Child Pages */}
+          <div className="flex-1 flex flex-col h-full overflow-scroll">
+            <div className="max-w-4xl w-full mx-auto">{children}</div>
+          </div>
         </div>
-      </div>
 
-      {/* Upload Sheet */}
-      <DatasetUploadSheet
-        open={uploadSheetOpen}
-        onOpenChange={setUploadSheetOpen}
-      />
+        {/* Upload Sheet */}
+        <DatasetUploadSheet
+          open={uploadSheetOpen}
+          onOpenChange={setUploadSheetOpen}
+        />
+      </DashboardBody>
     </div>
   );
 }

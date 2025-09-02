@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="system" storageKey="forge-theme">
+      <ThemeProvider defaultTheme="system" storageKey="lemma-theme">
         {children}
         <ReactQueryDevtools initialIsOpen={false} />
       </ThemeProvider>

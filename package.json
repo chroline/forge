@@ -1,5 +1,5 @@
 {
-  "name": "forge",
+  "name": "lemma",
   "private": true,
   "scripts": {
     "dev": "next dev",

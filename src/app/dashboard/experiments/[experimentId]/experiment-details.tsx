@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 interface ExperimentDetailsProps {
   dataset: string;
   model: string;
-  framework: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -13,7 +12,6 @@ interface ExperimentDetailsProps {
 export function ExperimentDetails({
   dataset,
   model,
-  framework,
   createdAt,
   updatedAt,
 }: ExperimentDetailsProps) {
@@ -35,12 +33,7 @@ export function ExperimentDetails({
           </label>
           <p>{model}</p>
         </div>
-        <div>
-          <label className="text-sm font-medium text-muted-foreground">
-            Framework
-          </label>
-          <p>{framework}</p>
-        </div>
+
         <div>
           <label className="text-sm font-medium text-muted-foreground">
             Created

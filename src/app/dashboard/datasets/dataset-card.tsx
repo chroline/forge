@@ -73,8 +73,8 @@ export function DatasetCard({
     >
       <Card
         className={cn(
-          "cursor-pointer transition-all hover:shadow-md py-0 relative",
-          isActive && "ring-2 ring-primary"
+          "cursor-pointer transition-all py-0 relative border-1 hover:border-primary hover:shadow-none",
+          isActive && "border-primary"
         )}
       >
         {/* Checkbox in top right */}

@@ -414,38 +414,64 @@ export function ExperimentPromptIterations({
                     </div>
                   </div>
 
-                  {/* Confusion Matrix */}
-                  <div>
-                    <h4 className="text-sm font-medium mb-3">
-                      Confusion Matrix
-                    </h4>
-                    <div className="grid grid-cols-2 gap-2 max-w-xs">
-                      <div className="text-center p-2 bg-green-100 rounded border border-green-200">
-                        <div className="font-bold text-green-700">
-                          {iteration.metrics.confusionMatrix.truePositives}
-                        </div>
-                        <div className="text-xs text-green-600">TP</div>
+                  {/* Multi-Class Confusion Matrix Preview */}
+                  {iteration.metrics.multiClassConfusionMatrix && (
+                    <div>
+                      <h4 className="text-sm font-medium mb-3">
+                        Multi-Class Confusion Matrix
+                      </h4>
+                      <div className="text-xs text-muted-foreground mb-2">
+                        Shows confusion patterns across all intent classes
                       </div>
-                      <div className="text-center p-2 bg-red-100 rounded border border-red-200">
-                        <div className="font-bold text-red-700">
-                          {iteration.metrics.confusionMatrix.falsePositives}
+                      <div className="bg-gray-50 p-3 rounded-lg border">
+                        <div className="text-sm font-medium mb-2">
+                          Key Insights:
                         </div>
-                        <div className="text-xs text-red-600">FP</div>
-                      </div>
-                      <div className="text-center p-2 bg-red-100 rounded border border-red-200">
-                        <div className="font-bold text-red-700">
-                          {iteration.metrics.confusionMatrix.falseNegatives}
+                        <div className="space-y-1 text-xs">
+                          {Object.entries(
+                            iteration.metrics.multiClassConfusionMatrix
+                          ).map(([actualClass, predictions]) => {
+                            const correct = predictions[actualClass] || 0;
+                            const total = Object.values(predictions).reduce(
+                              (sum, val) => sum + val,
+                              0
+                            );
+                            const accuracy =
+                              total > 0
+                                ? ((correct / total) * 100).toFixed(1)
+                                : "0.0";
+
+                            // Find most common confusion
+                            const confusions = Object.entries(predictions)
+                              .filter(
+                                ([predictedClass, count]) =>
+                                  predictedClass !== actualClass && count > 0
+                              )
+                              .sort(([, a], [, b]) => b - a);
+
+                            return (
+                              <div
+                                key={actualClass}
+                                className="flex justify-between items-center relative"
+                              >
+                                <span className="truncate">{actualClass}:</span>
+                                <span className="absolute font-medium left-1/2 -translate-x-1/2">
+                                  {accuracy}%
+                                </span>
+                                <div className="relative flex items-center space-x-2">
+                                  {confusions.length > 0 && (
+                                    <span className="text-red-600 text-xs">
+                                      → {confusions[0][0]} ({confusions[0][1]})
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            );
+                          })}
                         </div>
-                        <div className="text-xs text-red-600">FN</div>
-                      </div>
-                      <div className="text-center p-2 bg-green-100 rounded border border-green-200">
-                        <div className="font-bold text-green-700">
-                          {iteration.metrics.confusionMatrix.trueNegatives}
-                        </div>
-                        <div className="text-xs text-green-600">TN</div>
                       </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Performance Data */}
                   {iteration.latency && (

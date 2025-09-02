@@ -39,7 +39,6 @@ export function ExperimentCreateSheet({
     description: "",
     dataset: "",
     model: "",
-    framework: "",
   });
   const router = useRouter();
 
@@ -64,7 +63,6 @@ export function ExperimentCreateSheet({
         metrics: null,
         dataset: formData.dataset,
         model: formData.model,
-        framework: formData.framework,
       });
 
       // Reset form and close sheet
@@ -73,7 +71,6 @@ export function ExperimentCreateSheet({
         description: "",
         dataset: "",
         model: "",
-        framework: "",
       });
       onOpenChange(false);
 
@@ -90,7 +87,6 @@ export function ExperimentCreateSheet({
       description: "",
       dataset: "",
       model: "",
-      framework: "",
     });
     onOpenChange(false);
   }, [onOpenChange]);
@@ -163,32 +159,12 @@ export function ExperimentCreateSheet({
                 <SelectValue placeholder="Select a model" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="GPT-4">GPT-4</SelectItem>
-                <SelectItem value="GPT-3.5-turbo">GPT-3.5-turbo</SelectItem>
-                <SelectItem value="Claude-3">Claude-3</SelectItem>
-                <SelectItem value="Claude-2">Claude-2</SelectItem>
-                <SelectItem value="Llama-2">Llama-2</SelectItem>
+                <SelectItem value="gpt-4o">GPT-4o</SelectItem>
+                <SelectItem value="gpt-4o-mini">GPT-4o-mini</SelectItem>
+                <SelectItem value="claude-3-5-sonnet">
+                  Claude-3-5-sonnet
+                </SelectItem>
                 <SelectItem value="Custom">Custom</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Framework Selection */}
-          <div className="space-y-2">
-            <Label htmlFor="framework">Framework</Label>
-            <Select
-              value={formData.framework}
-              onValueChange={(value) => handleInputChange("framework", value)}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Select a framework" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="OpenAI API">OpenAI API</SelectItem>
-                <SelectItem value="Anthropic API">Anthropic API</SelectItem>
-                <SelectItem value="Hugging Face">Hugging Face</SelectItem>
-                <SelectItem value="Custom API">Custom API</SelectItem>
-                <SelectItem value="Local Model">Local Model</SelectItem>
               </SelectContent>
             </Select>
           </div>

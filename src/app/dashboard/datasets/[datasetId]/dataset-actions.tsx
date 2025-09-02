@@ -2,9 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Archive, Download, Eye, Trash2 } from "lucide-react";
+import { Archive, Download, Eye, EyeOff, Trash2 } from "lucide-react";
 
-export function DatasetActions() {
+interface DatasetActionsProps {
+  onViewData?: () => void;
+  showEntries?: boolean;
+}
+
+export function DatasetActions({ onViewData, showEntries }: DatasetActionsProps) {
   return (
     <Card>
       <CardHeader>
@@ -12,9 +17,18 @@ export function DatasetActions() {
       </CardHeader>
       <CardContent>
         <div className="flex gap-2">
-          <Button variant="default">
-            <Eye className="mr-2 h-4 w-4" />
-            View Data
+          <Button variant="default" onClick={onViewData}>
+            {showEntries ? (
+              <>
+                <EyeOff className="mr-2 h-4 w-4" />
+                Hide Data
+              </>
+            ) : (
+              <>
+                <Eye className="mr-2 h-4 w-4" />
+                View Data
+              </>
+            )}
           </Button>
           <Button variant="outline">
             <Download className="mr-2 h-4 w-4" />

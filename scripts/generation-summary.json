@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2025-08-10T09:24:10.486Z",
+  "dataset": {
+    "name": "Patient Communication Intent",
+    "entries": 1000,
+    "columns": 6,
+    "sampleSize": 50
+  },
+  "experiment": {
+    "name": "Patient Communication Intent Optimization",
+    "iterations": 5,
+    "finalAccuracy": 0.954,
+    "improvement": "20.2%"
+  },
+  "metricsProgression": [
+    {
+      "iteration": 1,
+      "accuracy": 0.752,
+      "precision": 0.7668871016789732,
+      "recall": 0.7527278739803936,
+      "f1Score": 0.7566929879040606
+    },
+    {
+      "iteration": 2,
+      "accuracy": 0.848,
+      "precision": 0.8560392277742719,
+      "recall": 0.8497638466032625,
+      "f1Score": 0.8505285494519733
+    },
+    {
+      "iteration": 3,
+      "accuracy": 0.795,
+      "precision": 0.8028866347726531,
+      "recall": 0.7947846285557459,
+      "f1Score": 0.796412056857133
+    },
+    {
+      "iteration": 4,
+      "accuracy": 0.945,
+      "precision": 0.9476583532094911,
+      "recall": 0.9440079381256714,
+      "f1Score": 0.9450598345485114
+    },
+    {
+      "iteration": 5,
+      "accuracy": 0.954,
+      "precision": 0.9554913876131167,
+      "recall": 0.9536165255793138,
+      "f1Score": 0.9541191491638802
+    }
+  ]
+}
